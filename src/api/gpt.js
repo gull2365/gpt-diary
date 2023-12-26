@@ -12,7 +12,7 @@ export const CallGPT = async ({ prompt }) => {
     },
     {
       role: "user",
-      content: `1. [title]: Think of the diary title after understanding the [events] separated by """ at the bottom.
+      content: `1. [title] : Think of the diary title after understanding the [events] separated by """ at the bottom.
     2. [summarize] : Summarizes events in order with one line sentence.
     3. [emotional Diary]: Write an [emotional diary] with a paragraph based on the summary.
     4. [evaluates]: The written emotional [evaluates], using explore the unconscious based on the contents of the [emotional diary].
@@ -22,16 +22,16 @@ export const CallGPT = async ({ prompt }) => {
     
     Translate into Korean and Use the output int the JSON format output:
     {
-    title: here is [title],
-    thumbnail: here is [image],
-    summary: here is [summarize],
-    emotional_content: here is [emotional Diary],
-    emotional_result: here is [evaluates],
-    analysis: here is [psychological analysis],
-    Action_list: here is [3 Action Tips],
+      title: here is [title],
+      thumbnail: here is [image],
+      summary: here is [summarize],
+      emotional_content: here is [emotional Diary],
+      emotional_result: here is [evaluates],
+      analysis: here is [psychological analysis],
+      Action_list: here is [3 Action Tips],
     }
     
-    [events]:`,
+    [events]: `,
     },
     {
       role: "user",

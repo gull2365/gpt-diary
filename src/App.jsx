@@ -1,21 +1,9 @@
 import { useState } from "react";
 import { CallGPT } from "./api/gpt";
 
-const dummyData = JSON.parse(`{
-  {
-    "title": "코딩의 고난과 열정",
-    "thumbnail": "https://source.unsplash.com/1600x900/?coding,bug,challenge",
-    "summary": "코딩 강의를 들었고, 프로젝트에서 버그가 많이 나와 스택오버플로에서 검색했지만 해결되지 않았다. 결국 GPT를 활용하여 문제를 해결했다. 이런 방식이 개발 실력 향상에 도움이 될까?",
-    "emotional_content": "하루는 강의를 열심히 들으며 코딩의 세계에 빠져들었다. 하지만 프로젝트에서 발생한 버그들은 나를 괴롭히고, 검색을 통해 시간을 낭비했다. 마침내 GPT의 도움으로 문제를 해결했지만, 이것이 실력 향상에 도움이 되는 것일까? 고민이 많다.",
-    "emotional_result": "혼란스러운 감정이 나를 휩쓸었다. 성취감과 동시에 불안감이 교차되어 미래의 개발 여정에 대한 두려움이 커졌다.",
-    "analysis": "이 경험은 성취와 불안, 두 가지 감정을 동시에 경험하게 했다. 이는 새로운 도전에 대한 열망과 동시에 자신에 대한 불안감이 공존함을 나타낸다. 개발자로서의 성장은 어려움과 도전 속에서 나타날 수 있으며, 이는 학습과 발전의 기회로 받아들여져야 한다.",
-    "action_list": [
-      "자신에 대한 자신감을 강화하기 위해 성취한 작업을 기록하고 돌아보며 긍정적인 피드백을 주기.",
-      "지속적인 학습과 도전을 통해 불안감을 극복하고 성장의 기회로 삼기.",
-      "개발 커뮤니티에 참여하여 다양한 경험과 지식을 얻고, 협력과 지원을 통해 어려움을 극복하기."
-    ]
-  }  
-}`);
+const dummyData = JSON.parse(`
+{ "title": "코딩 강의와 버그 해결", "thumbnail": "https://source.unsplash.com/1600x900/?coding", "summary": "코딩 강의를 듣고 프로젝트에서 발생한 버그를 스택오버플로에서 검색하여 해결하지 못했지만, GPT를 사용하여 문제를 해결했습니다. 이 방법이 개발 실력에 도움이 될까요?", "emotional_content": "오늘은 코딩 강의를 들었습니다. 강의를 듣고 나서 프로젝트를 진행하던 중 버그가 많이 발생했습니다. 처음에는 스택오버플로에서 해당 버그에 대해 검색을 해보았지만, 원하는 답을 얻지 못했습니다. 저의 능력으로는 문제를 해결할 수 없다는 생각에 낙담했습니다. 그런데, 교수님께서 GPT를 사용하여 버그를 해결하는 방법을 알려주셨습니다. 이 방법을 사용하여 문제를 해결했고, 프로젝트를 성공적으로 완료했습니다. 하지만, 제 개발 실력에 도움이 됐을까요? 과연 이렇게 해결하는 것이 개발자로서 성장하는 데 도움이 될까요?", "emotional_result": "이번 경험을 통해 저는 자신의 능력에 대한 의문과 불안을 느꼈습니다. 스택오버플로에서 해결책을 찾지 못한 것으로 보아, 제 개발 실력이 부족하다는 생각이 들었습니다. 또한, GPT를 사용하여 문제를 해결했지만, 이 방법이 제 실력을 향상시키는 데에는 도움이 되지 않았을까 하는 의문도 들었습니다.", "analysis": "이번 상황에서는 저의 개발 실력에 대한 의문과 불안이 두드러졌습니다. 개발자로서 성장하기 위해서는 스택오버플로에서의 검색뿐만 아니라 다양한 학습과 경험이 필요합니다. GPT를 사용하여 문제를 해결한 것은 임시적인 해결책이었을 수 있으며, 제 실력 향상에는 한계가 있을 수 있습니다. 따라서, 제 개발 실력을 향상시키기 위해서는 더 많은 학습과 실전 경험이 필요할 것입니다.", "Action_list": [ "스택오버플로에서만 의존하지 말고, 다양한 자료와 학습 자료를 참고하여 개발 실력을 향상시킬 것", "다른 개발자들과의 소통과 협업을 통해 실전 경험을 쌓을 것", "정기적으로 자기 평가를 진행하여 개발 실력을 체크하고 개선할 것" ] }
+`);
 
 function App() {
   const [data, setData] = useState(dummyData);
@@ -36,10 +24,16 @@ function App() {
     }
   };
 
+  console.log(">>data", data);
+
   return (
     <>
       <button onClick={handleClickAPICall}>GPT API call</button>
-      <div>title: {data?.title}</div>
+      <div>title: {data.title}</div>
+      <div>title: {data.analysis}</div>
+      <div>title: {data.emotional_content}</div>
+      <div>title: {data.emotional_result}</div>
+      <div>title: {data.summary}</div>
       <div>
         isLoading: <span>{isLoading ? "Loading.." : "finish"}</span>
       </div>
